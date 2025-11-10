@@ -14,16 +14,225 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      newsletter_subscribers: {
+        Row: {
+          email: string
+          id: string
+          landing_page: string | null
+          referrer: string | null
+          subscribed_at: string
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          email: string
+          id?: string
+          landing_page?: string | null
+          referrer?: string | null
+          subscribed_at?: string
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          email?: string
+          id?: string
+          landing_page?: string | null
+          referrer?: string | null
+          subscribed_at?: string
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string | null
+          email: string
+          full_name: string | null
+          id: string
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      recruiters_waitlist: {
+        Row: {
+          company_name: string
+          contact_person_name: string
+          contact_phone: string | null
+          created_at: string | null
+          hiring_for: string
+          hiring_interest: string
+          id: string
+          landing_page: string | null
+          number_of_roles: string | null
+          quick_note: string | null
+          referrer: string | null
+          requirement_details: string | null
+          universities_locations: string | null
+          user_type: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          work_email: string
+        }
+        Insert: {
+          company_name: string
+          contact_person_name: string
+          contact_phone?: string | null
+          created_at?: string | null
+          hiring_for: string
+          hiring_interest: string
+          id?: string
+          landing_page?: string | null
+          number_of_roles?: string | null
+          quick_note?: string | null
+          referrer?: string | null
+          requirement_details?: string | null
+          universities_locations?: string | null
+          user_type?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          work_email: string
+        }
+        Update: {
+          company_name?: string
+          contact_person_name?: string
+          contact_phone?: string | null
+          created_at?: string | null
+          hiring_for?: string
+          hiring_interest?: string
+          id?: string
+          landing_page?: string | null
+          number_of_roles?: string | null
+          quick_note?: string | null
+          referrer?: string | null
+          requirement_details?: string | null
+          universities_locations?: string | null
+          user_type?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          work_email?: string
+        }
+        Relationships: []
+      }
+      students_waitlist: {
+        Row: {
+          area_of_interest: string
+          college: string | null
+          created_at: string | null
+          email: string
+          full_name: string
+          id: string
+          landing_page: string | null
+          linkedin_url: string | null
+          mobile_number: string | null
+          other_work_links: string | null
+          preferred_industries: string | null
+          referrer: string | null
+          student_role: string | null
+          user_type: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          area_of_interest: string
+          college?: string | null
+          created_at?: string | null
+          email: string
+          full_name: string
+          id?: string
+          landing_page?: string | null
+          linkedin_url?: string | null
+          mobile_number?: string | null
+          other_work_links?: string | null
+          preferred_industries?: string | null
+          referrer?: string | null
+          student_role?: string | null
+          user_type?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          area_of_interest?: string
+          college?: string | null
+          created_at?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          landing_page?: string | null
+          linkedin_url?: string | null
+          mobile_number?: string | null
+          other_work_links?: string | null
+          preferred_industries?: string | null
+          referrer?: string | null
+          student_role?: string | null
+          user_type?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +359,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+    },
   },
 } as const
