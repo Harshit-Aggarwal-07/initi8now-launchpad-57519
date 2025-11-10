@@ -1,0 +1,112 @@
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Initi8Now color palette - Gold & Beige theme */
+    --background: 40 50% 95%;  /* #f6ead0 Light Beige */
+    --foreground: 0 0% 0%;  /* #000000 Black */
+
+    --card: 40 60% 95%;  /* #faebd6 Soft Cream */
+    --card-foreground: 0 0% 0%;
+
+    --popover: 40 60% 95%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 43 42% 58%;  /* #d0ad5c Golden Brown */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 40 58% 93%;  /* #faebd8 Ivory Cream */
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 40 54% 85%;  /* #f5e6c7 Pale Beige */
+    --muted-foreground: 38 30% 42%;  /* #8a734a Muted Brown */
+
+    --accent: 43 44% 60%;  /* #cead5e Warm Gold */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 60% 95%;
+
+    --border: 40 54% 85%;
+    --input: 40 54% 85%;
+    --ring: 43 42% 58%;
+
+    --radius: 1rem;
+
+    /* Custom tokens for Initi8Now */
+    --golden-cta: 43 42% 60%;  /* #d7b35c Golden Yellow for CTAs */
+    --light-cream: 40 60% 96%;  /* #fbecd7 Light Cream */
+    
+    --sidebar-background: 40 60% 95%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 43 42% 58%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 40 54% 85%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 40 54% 85%;
+    --sidebar-ring: 43 42% 58%;
+  }
+
+  .dark {
+    --background: 0 0% 0%;  /* #000000 Black */
+    --foreground: 40 60% 95%;  /* Light text */
+
+    --card: 0 0% 8%;  /* Slightly lighter black for cards */
+    --card-foreground: 40 60% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 60% 95%;
+
+    --primary: 43 42% 58%;  /* Keep gold accent */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 60% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 54% 75%;
+
+    --accent: 43 44% 60%;  /* Warm Gold */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 40 60% 95%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 43 42% 58%;
+    
+    --golden-cta: 43 42% 60%;
+    --light-cream: 0 0% 12%;
+    
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 40 60% 95%;
+    --sidebar-primary: 43 42% 58%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 40 60% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 43 42% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
