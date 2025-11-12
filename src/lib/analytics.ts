@@ -12,8 +12,9 @@ declare global {
 }
 
 // Initialize Google Analytics
-export const initGA = (measurementId: string) => {
-  if (typeof window === 'undefined') return;
+export const initGA = () => {
+  const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
+  if (!measurementId || typeof window === 'undefined') return;
 
   // Create script tag for gtag.js
   const script = document.createElement('script');

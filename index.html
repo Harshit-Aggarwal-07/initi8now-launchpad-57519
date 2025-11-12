@@ -145,9 +145,6 @@
     }
     </script>
 
-    <script type="module" src="/src/main.tsx"></script>
-
-
     <!-- Favicons - Adaptive for light/dark mode -->
     <link rel="icon" href="/favicon-light.png" type="image/png" media="(prefers-color-scheme: light)" />
     <link rel="icon" href="/favicon-dark.png" type="image/png" media="(prefers-color-scheme: dark)" />
@@ -158,16 +155,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Google Analytics 4 -->
-    <!-- Add your GA4 Measurement ID in .env as VITE_GA_MEASUREMENT_ID -->
-    <script>
-      if (import.meta.env.VITE_GA_MEASUREMENT_ID) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', import.meta.env.VITE_GA_MEASUREMENT_ID);
-      }
-    </script>
+    <!-- Google Analytics 4 - Initialized in main.tsx -->
   </head>
 
   <body>
