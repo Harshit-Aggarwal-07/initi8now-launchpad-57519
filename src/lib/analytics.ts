@@ -2,17 +2,13 @@
 
 declare global {
   interface Window {
-    gtag?: (
-      command: string,
-      targetId: string | Date,
-      config?: Record<string, any>
-    ) => void;
+    gtag?: (...args: any[]) => void;
     dataLayer?: any[];
   }
 }
 
-// Initialize Google Analytics
-export const initGA = () => {
+// Initialize Google Analytics (no parameters needed - reads from env)
+export function initGA(): void {
   const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
   if (!measurementId || typeof window === 'undefined') return;
 
@@ -24,14 +20,14 @@ export const initGA = () => {
 
   // Initialize dataLayer
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() {
+  window.gtag = function() {
     window.dataLayer?.push(arguments);
   };
   window.gtag('js', new Date());
   window.gtag('config', measurementId, {
     page_path: window.location.pathname,
   });
-};
+}
 
 // Track page views
 export const trackPageView = (url: string) => {
