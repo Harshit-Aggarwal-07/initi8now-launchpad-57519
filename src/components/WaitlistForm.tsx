@@ -53,6 +53,7 @@ interface WaitlistFormProps {
 export const WaitlistForm = ({ userType, onSuccess }: WaitlistFormProps) => {
   const [loading, setLoading] = useState(false);
   const [consent, setConsent] = useState(false);
+  const [newsletterSubscribe, setNewsletterSubscribe] = useState(false);
   const [hiringInterest, setHiringInterest] = useState<string[]>([]);
   const [formStarted, setFormStarted] = useState(false);
   const { toast } = useToast();
@@ -99,6 +100,7 @@ export const WaitlistForm = ({ userType, onSuccess }: WaitlistFormProps) => {
         referrer: document.referrer || "",
         landing_page: window.location.href,
         user_type: userType,
+        newsletter_subscribe: newsletterSubscribe,
       };
 
       // Convert hiring_interest array to comma-separated string for recruiters
@@ -256,7 +258,18 @@ export const WaitlistForm = ({ userType, onSuccess }: WaitlistFormProps) => {
           </Label>
         </div>
 
-        <Button 
+        <div className="flex items-start space-x-2">
+          <Checkbox 
+            id="newsletter" 
+            checked={newsletterSubscribe} 
+            onCheckedChange={(checked) => setNewsletterSubscribe(checked as boolean)}
+          />
+          <Label htmlFor="newsletter" className="text-sm leading-relaxed cursor-pointer">
+            Subscribe to our newsletter for job alerts, career tips, and platform updates
+          </Label>
+        </div>
+
+        <Button
           type="submit" 
           className="w-full bg-golden-cta hover:bg-primary text-foreground font-semibold rounded-2xl py-6 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
           disabled={loading || !consent}
@@ -385,7 +398,18 @@ export const WaitlistForm = ({ userType, onSuccess }: WaitlistFormProps) => {
         </Label>
       </div>
 
-      <Button 
+      <div className="flex items-start space-x-2">
+        <Checkbox 
+          id="newsletter" 
+          checked={newsletterSubscribe} 
+          onCheckedChange={(checked) => setNewsletterSubscribe(checked as boolean)}
+        />
+        <Label htmlFor="newsletter" className="text-sm leading-relaxed cursor-pointer">
+          Subscribe to our newsletter for job alerts, career tips, and platform updates
+        </Label>
+      </div>
+
+      <Button
         type="submit" 
         className="w-full bg-golden-cta hover:bg-primary text-foreground font-semibold rounded-2xl py-6 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
         disabled={loading || !consent || (userType === "recruiter" && hiringInterest.length === 0)}

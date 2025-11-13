@@ -163,11 +163,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <HowItWorks />
-
       {/* Newsletter Section */}
       <Newsletter />
+
+      {/* How It Works Section */}
+      <HowItWorks />
 
       {/* FAQ */}
       <FAQ />
