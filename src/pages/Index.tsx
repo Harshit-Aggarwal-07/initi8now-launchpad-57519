@@ -7,7 +7,7 @@ import { SuccessModal } from "@/components/SuccessModal";
 import { FAQ } from "@/components/FAQ";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Newsletter } from "@/components/Newsletter";
-import { analytics, trackPageView, initGA } from "@/lib/analytics";
+import { analytics, trackPageView } from "@/lib/analytics";
 import logoLight from "@/assets/logo-light.png";
 import logoDark from "@/assets/logo-dark.png";
 import { Briefcase, GraduationCap, Shield, Sparkles, TrendingUp, Users } from "lucide-react";
@@ -16,14 +16,6 @@ const Index = () => {
   const [userType, setUserType] = useState<"student" | "recruiter">("student");
   const [showSuccess, setShowSuccess] = useState(false);
   const location = useLocation();
-
-  // Initialize Google Analytics
-  useEffect(() => {
-    const measurementId = import.meta.env.VITE_GA_MEASUREMENT_ID;
-    if (measurementId) {
-      initGA(measurementId);
-    }
-  }, []);
 
   // Track page views
   useEffect(() => {
@@ -171,11 +163,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <HowItWorks />
-
       {/* Newsletter Section */}
       <Newsletter />
+
+      {/* How It Works Section */}
+      <HowItWorks />
 
       {/* FAQ */}
       <FAQ />
