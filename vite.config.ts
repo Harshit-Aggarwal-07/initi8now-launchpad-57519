@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "/initi8now-launchpad-57519/",
+  base: "/",
   build: {
     outDir: "dist",
     sourcemap: false,
